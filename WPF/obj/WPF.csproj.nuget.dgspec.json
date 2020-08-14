@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj": {}
+    "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj": {
+    "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj",
+        "projectUniqueName": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj",
         "projectName": "WPF",
-        "projectPath": "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj",
-        "packagesPath": "C:\\Users\\k_hayashiba\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\WPF\\obj\\",
+        "projectPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj",
+        "packagesPath": "C:\\Users\\001\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\k_hayashiba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\001\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
