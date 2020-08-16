@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:WPF.ViewModels"
         mc:Ignorable="d"
         xmlns:behavior="clr-namespace:WPF.Behavior"
-        Title="金庫金額計算表" Height="700" Width="400">
+        Title="金庫金額計算表" Height="750" Width="400">
 
     <Window.DataContext>
         <vm:RemainingMoneyCalculationViewModel/>
@@ -15,10 +15,10 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2.1*"/>
-            <RowDefinition Height="1.6*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
         <GroupBox x:Name="MoneyCountGroupBox" Header="数量計算" Grid.Row="0" Margin="5">
             <Grid>
@@ -142,13 +142,32 @@
                 <Label Content="数量" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"/>
                 <Label Content="金額" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center"/>
                 <Label Content="五百円束" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right"/>
+                <TextBox x:Name="FiveHundredYenBundleTextBox" Grid.Column="1" Grid.Row="1" HorizontalAlignment= "Stretch" VerticalAlignment="Stretch" Margin="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding FiveHundredYenBundleCount}" behavior:TextBoxAttachment.IsSelectAllOnGotFocus="True"/>
+                <TextBlock Text="{Binding FiveHundredYenBundleAmountWithUnit,Mode=OneWay}"  Grid.Row="1" Grid.Column="2" Margin="3,2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 <Label Content="百円束" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right"/>
+                <TextBox x:Name="OneHundredYenBundleTextBox" Grid.Column="1" Grid.Row="2" HorizontalAlignment= "Stretch" VerticalAlignment="Stretch" Margin="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding OneHundredYenBundleCount}" behavior:TextBoxAttachment.IsSelectAllOnGotFocus="True"/>
+                <TextBlock Text="{Binding OneHundredYenBundleAmountWithUnit,Mode=OneWay}"  Grid.Row="2" Grid.Column="2" Margin="3,2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 <Label Content="五十円束" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right"/>
+                <TextBox x:Name="FiftyYenBundleTextBox" Grid.Column="1" Grid.Row="3" HorizontalAlignment= "Stretch" VerticalAlignment="Stretch" Margin="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding FiftyYenBundleCount}" behavior:TextBoxAttachment.IsSelectAllOnGotFocus="True"/>
+                <TextBlock Text="{Binding FiftyYenBundleAmountWithUnit,Mode=OneWay}"  Grid.Row="3" Grid.Column="2" Margin="3,2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 <Label Content="十円束" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right"/>
+                <TextBox x:Name="TenYenBundleTextBox" Grid.Column="1" Grid.Row="4" HorizontalAlignment= "Stretch" VerticalAlignment="Stretch" Margin="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding TenYenBundleCount}" behavior:TextBoxAttachment.IsSelectAllOnGotFocus="True"/>
+                <TextBlock Text="{Binding TenYenBundleAmountWithUnit,Mode=OneWay}"  Grid.Row="4" Grid.Column="2" Margin="3,2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 <Label Content="五円束" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right"/>
+                <TextBox x:Name="FiveYenBundleTextBox" Grid.Column="1" Grid.Row="5" HorizontalAlignment= "Stretch" VerticalAlignment="Stretch" Margin="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding FiveYenBundleCount}" behavior:TextBoxAttachment.IsSelectAllOnGotFocus="True"/>
+                <TextBlock Text="{Binding FiveYenBundleAmountWithUnit,Mode=OneWay}"  Grid.Row="5" Grid.Column="2" Margin="3,2" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 <Label Content="一円束" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Right"/>
-                <!--<TextBox x:Name="FiveHundredYenBundleTextBox" Grid.Row="1" Grid.Column="1" Text=""/>-->
+                <TextBox x:Name="OneYenBundleTextBox" Grid.Column="1" Grid.Row="6" HorizontalAlignment= "Stretch" VerticalAlignment="Stretch" Margin="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding OneYenBundleCount}" behavior:TextBoxAttachment.IsSelectAllOnGotFocus="True"/>
+                <TextBlock Text="{Binding OneYenBundleAmountWithUnit,Mode=OneWay}"  Grid.Row="6" Grid.Column="2" Margin="3,2" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </Grid>
         </GroupBox>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="合計金額 : " Margin="10" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="18" FontWeight="Bold"/>
+            <TextBlock Text="{Binding TotalAmount}" Grid.Column="1" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"/>
+        </Grid>
     </Grid>
 </Window>

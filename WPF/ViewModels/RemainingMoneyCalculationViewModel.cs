@@ -10,6 +10,7 @@
                 tenThousandYenCount = value;
                 TenThousandYenAmount = value * 10000;
                 TenThousandYenAmountWithUnit = $"{TenThousandYenAmount:N0} 円";
+                SetTotalAmount();
                 CallPropertyChanged();
             }
         }
@@ -22,6 +23,7 @@
                 fiveThousandYenCount = value;
                 FiveThousandYenAmount = value * 5000;
                 FiveThousandYenAmountWithUnit = $"{FiveThousandYenAmount:N0} 円";
+                SetTotalAmount();
                 CallPropertyChanged();
             }
         }
@@ -34,6 +36,7 @@
                 oneThousandYenCount = value;
                 OneThousandYenAmount = value * 1000;
                 OneThousandYenAmountWithUnit = $"{OneThousandYenAmount:N0} 円";
+                SetTotalAmount();
                 CallPropertyChanged();
             }
         }
@@ -46,6 +49,7 @@
                 fiveHundredYenCount = value;
                 FiveHundredYenAmount = value * 500;
                 FiveHundredYenAmountWithUnit = $"{FiveHundredYenAmount:N0} 円";
+                SetTotalAmount();
                 CallPropertyChanged();
             }
         }
@@ -59,6 +63,7 @@
                 oneHundredYenCount = value;
                 OneHundredYenAmount = value * 100;
                 OneHundredYenAmountWithUnit = $"{OneHundredYenAmount:N0} 円";
+                SetTotalAmount();
                 CallPropertyChanged();
             }
         }
@@ -70,8 +75,9 @@
             set
             {
                 fiftyYenCount = value;
-
-                FiftyYenAmountWithUnit = $"{value * 50:N0} 円";
+                FiftyYenAmount = value * 50;
+                FiftyYenAmountWithUnit = $"{FiftyYenAmount:N0} 円";
+                SetTotalAmount();
                 CallPropertyChanged();
             }
         }
@@ -82,7 +88,9 @@
             set
             {
                 tenYenCount = value;
-                TenYenAmountWithUnit = $"{value * 10:N0} 円";
+                TenYenAmount = value * 10;
+                TenYenAmountWithUnit = $"{TenYenAmount:N0} 円";
+                SetTotalAmount();
                 CallPropertyChanged();
             }
         }
@@ -93,7 +101,9 @@
             set
             {
                 fiveYenCount = value;
-                FiveYenAmountWithUnit = $"{value * 5:N0} 円";
+                FiveYenAmount = value * 5;
+                FiveYenAmountWithUnit = $"{FiveYenAmount:N0} 円";
+                SetTotalAmount();
                 CallPropertyChanged();
             }
         }
@@ -104,7 +114,9 @@
             set
             {
                 oneYenCount = value;
-                OneYenAmountWithUnit = $"{value * 1:N0} 円";
+                OneYenAmount = value * 1;
+                OneYenAmountWithUnit = $"{OneYenAmount:N0} 円";
+                SetTotalAmount();
                 CallPropertyChanged();
             }
         }
@@ -198,7 +210,7 @@
                 CallPropertyChanged();
             }
         }
-
+            
         private int OneYenAmount;
         private int FiveYenAmount;
         private int TenYenAmount;
@@ -208,8 +220,14 @@
         private int OneThousandYenAmount;
         private int FiveThousandYenAmount;
         private int TenThousandYenAmount;
+        private int FiveHundredYenBundleAmount;
+        private int OneHundredYenBundleAmount;
+        private int FiftyYenBundleAmount;
+        private int TenYenBundleAmount;
+        private int FiveYenBundleAmount;
+        private int OneYenBundleAmount;
 
-        public int TotalAmount
+        public string TotalAmount
         {
             get => totalAmount;
             set
@@ -219,6 +237,156 @@
             }
         }
 
+        public int FiveHundredYenBundleCount
+        {
+            get => fiveHundredYenBundleCount;
+            set
+            {
+                fiveHundredYenBundleCount = value;
+                FiveHundredYenBundleAmount = value * 500 * 50;
+                FiveHundredYenBundleAmountWithUnit = $"{FiveHundredYenBundleAmount:N0} 円";
+                SetTotalAmount();
+                CallPropertyChanged();
+            }
+        }
+
+        public string FiveHundredYenBundleAmountWithUnit
+        {
+            get => fiveHundredYenBundleAmountWithUnit;
+            set
+            {
+                fiveHundredYenBundleAmountWithUnit = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public int OneHundredYenBundleCount
+        {
+            get => oneHundredYenBundleCount;
+            set
+            {
+                oneHundredYenBundleCount = value;
+                OneHundredYenBundleAmount = value * 100 * 50;
+                OneHundredYenBundleAmountWithUnit = $"{OneHundredYenBundleAmount:N0} 円";
+                SetTotalAmount();
+                CallPropertyChanged();
+            }
+        }
+
+        public string OneHundredYenBundleAmountWithUnit
+        {
+            get => oneHundredYenBundleAmountWithUnit;
+            set
+            {
+                oneHundredYenBundleAmountWithUnit = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public int FiftyYenBundleCount
+        {
+            get => fiftyYenBundleCount;
+            set
+            {
+                fiftyYenBundleCount = value;
+                FiftyYenBundleAmount = value * 50 * 50;
+                FiftyYenBundleAmountWithUnit = $"{FiftyYenBundleAmount:N0} 円";
+                SetTotalAmount();
+                CallPropertyChanged();
+            }
+        }
+
+        public string FiftyYenBundleAmountWithUnit
+        {
+            get => fiftyYenBundleAmountWithUnit;
+            set
+            {
+                fiftyYenBundleAmountWithUnit = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public int TenYenBundleCount
+        {
+            get => tenYenBundleCount;
+            set
+            {
+                tenYenBundleCount = value;
+                TenYenBundleAmount = value * 10 * 50;
+                TenYenBundleAmountWithUnit = $"{TenYenBundleAmount:N0} 円";
+                SetTotalAmount();
+                CallPropertyChanged();
+            }
+        }
+
+        public string TenYenBundleAmountWithUnit
+        {
+            get => tenYenBundleAmountWithUnit;
+            set
+            {
+                tenYenBundleAmountWithUnit = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public int FiveYenBundleCount
+        {
+            get => fiveYenBundleCount;
+            set
+            {
+                fiveYenBundleCount = value;
+                FiveYenBundleAmount = value * 5 * 50;
+                FiveYenBundleAmountWithUnit = $"{FiveYenBundleAmount:N0} 円";
+                SetTotalAmount();
+                CallPropertyChanged();
+            }
+        }
+
+        public string FiveYenBundleAmountWithUnit
+        {
+            get => fiveYenBundleAmountWithUnit;
+            set
+            {
+                fiveYenBundleAmountWithUnit = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public int OneYenBundleCount
+        {
+            get => oneYenBundleCount;
+            set
+            {
+                oneYenBundleCount = value;
+                OneYenBundleAmount = value * 1 * 50;
+                OneYenBundleAmountWithUnit = $"{OneYenBundleAmount:N0} 円";
+                SetTotalAmount();
+                CallPropertyChanged();
+            }
+        }
+
+        public string OneYenBundleAmountWithUnit
+        {
+            get => oneYenBundleAmountWithUnit;
+            set
+            {
+                oneYenBundleAmountWithUnit = value;
+                CallPropertyChanged();
+            }
+        }
+
+        private string oneYenBundleAmountWithUnit;
+        private int oneYenBundleCount;
+        private string fiveYenBundleAmountWithUnit;
+        private int fiveYenBundleCount;
+        private string tenYenBundleAmountWithUnit;
+        private int tenYenBundleCount;
+        private string fiftyYenBundleAmountWithUnit;
+        private int fiftyYenBundleCount;
+        private string oneHundredYenBundleAmountWithUnit;
+        private int oneHundredYenBundleCount;
+        private string fiveHundredYenBundleAmountWithUnit;
+        private int fiveHundredYenBundleCount;
         private string oneYenAmountWithUnit;
         private string tenThousandYenAmountWithUnit;
         private string fiveThousandYenAmountWithUnit;
@@ -237,6 +405,13 @@
         private int tenThousandYenCount;
         private int fiveThousandYenCount;
         private int oneThousandYenCount;
-        private int totalAmount;
+        private string totalAmount;
+    
+        private void SetTotalAmount()
+        {
+            int I = OneYenAmount + FiveYenAmount + TenYenAmount + FiftyYenAmount + OneHundredYenAmount + FiveHundredYenAmount + OneThousandYenAmount + FiveThousandYenAmount + TenThousandYenAmount+FiveHundredYenBundleAmount+
+                OneHundredYenBundleAmount+FiftyYenBundleAmount+TenYenBundleAmount+FiveYenBundleAmount+OneYenBundleAmount;
+            TotalAmount = $"{I:N0} 円" ;
+        }
     }
 }
