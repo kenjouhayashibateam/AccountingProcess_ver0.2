@@ -514,12 +514,58 @@
         }
 
         /// <summary>
+        /// その他金庫等1
+        /// </summary>
+        public string OtherMoneyTitle1
+        {
+            get => otherMoneyTitle1;
+            set
+            {
+                otherMoneyTitle1 = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public string OtherMoneyAmountDisplayValue1
+        {
+            get => otherMoneyAmountDisplayValue1;
+            set
+            {
+                if (!int.TryParse(value, out OtherMoneyAmount1))
+                {
+                    OtherMoneyAmount1 = 0;
+                    otherMoneyAmountDisplayValue1 = "";
+                }
+                else
+                {
+                    otherMoneyAmountDisplayValue1 = OtherMoneyAmount1.ToString("N0");
+                    SetTotalAmount();
+                }
+                CallPropertyChanged();
+            }
+        }
+
+        public string OtherMoneyTitle2
+        {
+            get => otherMoneyTitle2;
+            set
+            {
+                otherMoneyTitle2 = value;
+                CallPropertyChanged();
+            }
+        }
+
+        private string otherMoneyTitle2="香華売り場";
+        private int OtherMoneyAmount1;
+        private string otherMoneyTitle1="青蓮堂";
+        private string otherMoneyAmountDisplayValue1;
+        /// <summary>
         /// 総金額を計算します。
         /// </summary>
         private void SetTotalAmount()
         {
             int I = OneYenAmount + FiveYenAmount + TenYenAmount + FiftyYenAmount + OneHundredYenAmount + FiveHundredYenAmount + OneThousandYenAmount + FiveThousandYenAmount + TenThousandYenAmount+FiveHundredYenBundleAmount+
-                OneHundredYenBundleAmount+FiftyYenBundleAmount+TenYenBundleAmount+FiveYenBundleAmount+OneYenBundleAmount;
+                OneHundredYenBundleAmount+FiftyYenBundleAmount+TenYenBundleAmount+FiveYenBundleAmount+OneYenBundleAmount+OtherMoneyAmount1;
             TotalAmount = ReturnAmountWithUnit(I);
         }
     }

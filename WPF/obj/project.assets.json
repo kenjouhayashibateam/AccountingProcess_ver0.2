@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj",
+      "projectUniqueName": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj",
       "projectName": "WPF",
-      "projectPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj",
+      "projectPath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj",
       "packagesPath": "C:\\Users\\001\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\obj\\",
+      "outputPath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\WPF\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\001\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

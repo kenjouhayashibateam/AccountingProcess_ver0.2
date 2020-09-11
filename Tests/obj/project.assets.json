@@ -5740,11 +5740,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Tests\\Tests.csproj",
+      "projectPath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\Tests\\Tests.csproj",
       "packagesPath": "C:\\Users\\001\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Tests\\obj\\",
+      "outputPath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\001\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5760,8 +5760,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj": {
-              "projectPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj"
+            "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj": {
+              "projectPath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj"
             }
           }
         }
@@ -5810,7 +5810,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

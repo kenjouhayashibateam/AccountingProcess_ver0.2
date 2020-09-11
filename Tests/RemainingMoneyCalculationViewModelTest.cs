@@ -47,5 +47,17 @@ namespace Tests
             
             Assert.AreEqual(vm.TotalAmount, "499,660 ‰~");
         }
+        [TestMethod]
+        public void ‚»‚Ì‘¼‹àŒÉ‚Ì‹àŠz—“‚ª”š‚©‚Ç‚¤‚©()
+        {
+            var vm = new RemainingMoneyCalculationViewModel
+            {
+                OtherMoneyAmountDisplayValue1 = "a"
+            };
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue1, "");
+
+            vm.OtherMoneyAmountDisplayValue1 = "1000";
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue1, "1,000");
+        }
     }
 }
