@@ -95,3 +95,5 @@ C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Tests\obj\Debug\netcoreapp3.1
 C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Tests\obj\Debug\netcoreapp3.1\Tests.dll
 C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Tests\obj\Debug\netcoreapp3.1\Tests.pdb
 C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Tests\obj\Debug\netcoreapp3.1\Tests.genruntimeconfig.cache
+C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Tests\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Tests\bin\Debug\netcoreapp3.1\Domain.pdb

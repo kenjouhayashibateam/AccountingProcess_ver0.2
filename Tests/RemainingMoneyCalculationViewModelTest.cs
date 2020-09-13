@@ -26,7 +26,15 @@ namespace Tests
                 TenYenBundleCount=10,
                 FiftyYenBundleCount=10,
                 OneHundredYenBundleCount=10,
-                FiveHundredYenBundleCount=10
+                FiveHundredYenBundleCount=10,
+                OtherMoneyAmountDisplayValue1="10",
+                OtherMoneyAmountDisplayValue2 = "10",
+                OtherMoneyAmountDisplayValue3 = "10",
+                OtherMoneyAmountDisplayValue4 = "10",
+                OtherMoneyAmountDisplayValue5 = "10",
+                OtherMoneyAmountDisplayValue6 = "10",
+                OtherMoneyAmountDisplayValue7 = "10",
+                OtherMoneyAmountDisplayValue8 = "10",
             };
             
             Assert.AreEqual(vm.OneYenAmountWithUnit, "10 â~");
@@ -45,19 +53,48 @@ namespace Tests
             Assert.AreEqual(vm.OneHundredYenBundleAmountWithUnit, "50,000 â~");
             Assert.AreEqual(vm.FiveHundredYenBundleAmountWithUnit, "250,000 â~");
             
-            Assert.AreEqual(vm.TotalAmount, "499,660 â~");
+            Assert.AreEqual(vm.TotalAmount, "499,740 â~");
         }
+
         [TestMethod]
         public void ÇªÇÃëºã‡å…ÇÃã‡äzóìÇ™êîéöÇ©Ç«Ç§Ç©()
         {
             var vm = new RemainingMoneyCalculationViewModel
             {
-                OtherMoneyAmountDisplayValue1 = "a"
+                OtherMoneyAmountDisplayValue1 = "a",
+                OtherMoneyAmountDisplayValue2 = "a",
+                OtherMoneyAmountDisplayValue3 = "a",
+                OtherMoneyAmountDisplayValue4 = "a",
+                OtherMoneyAmountDisplayValue5 = "a",
+                OtherMoneyAmountDisplayValue6 = "a",
+                OtherMoneyAmountDisplayValue7 = "a",
+                OtherMoneyAmountDisplayValue8 = "a",
             };
             Assert.AreEqual(vm.OtherMoneyAmountDisplayValue1, "");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue2, "");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue3, "");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue4, "");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue5, "");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue6, "");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue7, "");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue8, "");
 
             vm.OtherMoneyAmountDisplayValue1 = "1000";
+            vm.OtherMoneyAmountDisplayValue2 = "1000";
+            vm.OtherMoneyAmountDisplayValue3 = "1000";
+            vm.OtherMoneyAmountDisplayValue4 = "1000";
+            vm.OtherMoneyAmountDisplayValue5 = "1000";
+            vm.OtherMoneyAmountDisplayValue6 = "1000";
+            vm.OtherMoneyAmountDisplayValue7 = "1000";
+            vm.OtherMoneyAmountDisplayValue8 = "1000";
             Assert.AreEqual(vm.OtherMoneyAmountDisplayValue1, "1,000");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue2, "1,000");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue3, "1,000");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue4, "1,000");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue5, "1,000");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue6, "1,000");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue7, "1,000");
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue8, "1,000");
         }
     }
 }

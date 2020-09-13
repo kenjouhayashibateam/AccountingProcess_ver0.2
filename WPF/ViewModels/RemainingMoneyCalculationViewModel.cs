@@ -1,10 +1,14 @@
-﻿namespace WPF.ViewModels
+﻿using Domain;
+
+namespace WPF.ViewModels
 {
     /// <summary>
     /// 金庫金額計算ビューモデル
     /// </summary>
     public class RemainingMoneyCalculationViewModel:BaseViewModel
     {
+        private Cashbox myCashBox=new Cashbox();
+
         //表示用金額
         private string oneYenBundleAmountWithUnit;
         private string fiveYenBundleAmountWithUnit;
@@ -171,8 +175,9 @@
             set
             {
                 fiveYenCount = value;
-                SetMoney(5, value, ref FiveYenAmount);
-                FiveYenAmountWithUnit = ReturnAmountWithUnit(FiveYenAmount);
+                myCashBox.FiftyYen.Count = fiveYenCount;
+                FiveYenAmount = myCashBox.FiveYen.Amount;
+                FiveYenAmountWithUnit = myCashBox.FiveYen.AmountWithUnit();
                 CallPropertyChanged();
             }
         }
@@ -186,21 +191,20 @@
             set
             {
                 oneYenCount = value;
-                SetMoney(1, oneYenCount, ref OneYenAmount);
-                OneYenAmountWithUnit = ReturnAmountWithUnit(OneYenAmount);
+                myCashBox.OneYen.Count = oneYenCount;
+                OneYenAmount = myCashBox.OneYen.Amount;
+                OneYenAmountWithUnit = myCashBox.OneYen.AmountWithUnit();
                 CallPropertyChanged();
             }
         }
+
 
         /// <summary>
         /// 表示用の金額を文字列で返します。
         /// </summary>
         /// <param name="moneyAmount">金額</param>
         /// <returns></returns>
-        private string ReturnAmountWithUnit(int moneyAmount)
-        {
-            return $"{moneyAmount:N0} 円";
-        }
+        private string ReturnAmountWithUnit(int moneyAmount) => $"{moneyAmount:N0} 円";
 
         /// <summary>
         /// 入力された数量を各プロパティにセットします。
@@ -555,17 +559,224 @@
             }
         }
 
-        private string otherMoneyTitle2="香華売り場";
-        private int OtherMoneyAmount1;
-        private string otherMoneyTitle1="青蓮堂";
+        public string OtherMoneyAmountDisplayValue2
+        {
+            get => otherMoneyAmountDisplayValue2;
+            set
+            {
+                if (!int.TryParse(value, out OtherMoneyAmount2))
+                {
+                    OtherMoneyAmount2 = 0;
+                    otherMoneyAmountDisplayValue2 = "";
+                }
+                else
+                {
+                    otherMoneyAmountDisplayValue2 = OtherMoneyAmount2.ToString("N0");
+                    SetTotalAmount();
+                }
+            }
+        }
+
+        public string OtherMoneyTitle3
+        {
+            get => otherMoneyTitle3;
+            set
+            {
+                otherMoneyTitle3 = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public string OtherMoneyAmountDisplayValue3
+        {
+            get => otherMoneyAmountDisplayValue3;
+            set
+            {
+                if (!int.TryParse(value, out OtherMoneyAmount3))
+                {
+                    OtherMoneyAmount3 = 0;
+                    otherMoneyAmountDisplayValue3 = "";
+                }
+                else
+                {
+                    otherMoneyAmountDisplayValue3 = OtherMoneyAmount3.ToString("N0");
+                    SetTotalAmount();
+                }
+            }
+        }
+
+        public string OtherMoneyTitle4
+        {
+            get => otherMoneyTitle4;
+            set
+            {
+                otherMoneyTitle4 = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public string OtherMoneyAmountDisplayValue4
+        {
+            get => otherMoneyAmountDisplayValue4;
+            set
+            {
+                if (!int.TryParse(value, out OtherMoneyAmount4))
+                {
+                    OtherMoneyAmount4 = 0;
+                    otherMoneyAmountDisplayValue4 = "";
+                }
+                else
+                {
+                    otherMoneyAmountDisplayValue4 = OtherMoneyAmount4.ToString("N0");
+                    SetTotalAmount();
+                }
+            }
+        }
+
+        public string OtherMoneyTitle5
+        {
+            get => otherMoneyTitle5;
+            set
+            {
+                otherMoneyTitle5 = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public string OtherMoneyAmountDisplayValue5
+        {
+            get => otherMoneyAmountDisplayValue5;
+            set
+            {
+                if (!int.TryParse(value, out OtherMoneyAmount5))
+                {
+                    OtherMoneyAmount5 = 0;
+                    otherMoneyAmountDisplayValue5 = "";
+                }
+                else
+                {
+                    otherMoneyAmountDisplayValue5 = OtherMoneyAmount5.ToString("N0");
+                    SetTotalAmount();
+                }
+            }
+        }
+
+        public string OtherMoneyTitle6
+        {
+            get => otherMoneyTitle6;
+            set
+            {
+                otherMoneyTitle6 = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public string OtherMoneyAmountDisplayValue6
+        {
+            get => otherMoneyAmountDisplayValue6;
+            set
+            {
+                if (!int.TryParse(value, out OtherMoneyAmount6))
+                {
+                    OtherMoneyAmount6 = 0;
+                    otherMoneyAmountDisplayValue6 = "";
+                }
+                else
+                {
+                    otherMoneyAmountDisplayValue6 = OtherMoneyAmount6.ToString("N0");
+                    SetTotalAmount();
+                }
+            }
+        }
+
+        public string OtherMoneyTitle7
+        {
+            get => otherMoneyTitle7;
+            set
+            {
+                otherMoneyTitle7 = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public string OtherMoneyAmountDisplayValue7
+        {
+            get => otherMoneyAmountDisplayValue7;
+            set
+            {
+                if (!int.TryParse(value, out OtherMoneyAmount7))
+                {
+                    OtherMoneyAmount7 = 0;
+                    otherMoneyAmountDisplayValue7 = "";
+                }
+                else
+                {
+                    otherMoneyAmountDisplayValue7 = OtherMoneyAmount7.ToString("N0");
+                    SetTotalAmount();
+                }
+            }
+        }
+
+        public string OtherMoneyTitle8
+        {
+            get => otherMoneyTitle8;
+            set
+            {
+                otherMoneyTitle8 = value;
+                CallPropertyChanged();
+            }
+        }
+
+        public string OtherMoneyAmountDisplayValue8
+        {
+            get => otherMoneyAmountDisplayValue8;
+            set
+            {
+                if (!int.TryParse(value, out OtherMoneyAmount8))
+                {
+                    OtherMoneyAmount8 = 0;
+                    otherMoneyAmountDisplayValue8 = "";
+                }
+                else
+                {
+                    otherMoneyAmountDisplayValue8 = OtherMoneyAmount8.ToString("N0");
+                    SetTotalAmount();
+                }
+            }
+        }
+
         private string otherMoneyAmountDisplayValue1;
+        private string otherMoneyAmountDisplayValue2;
+        private string otherMoneyAmountDisplayValue3;
+        private string otherMoneyAmountDisplayValue4;
+        private string otherMoneyAmountDisplayValue5;
+        private string otherMoneyAmountDisplayValue6;
+        private string otherMoneyAmountDisplayValue7;
+        private string otherMoneyAmountDisplayValue8;
+        private string otherMoneyTitle1="青蓮堂";
+        private string otherMoneyTitle2="香華売り場";
+        private string otherMoneyTitle3;
+        private string otherMoneyTitle4;
+        private string otherMoneyTitle5;
+        private string otherMoneyTitle6;
+        private string otherMoneyTitle7;
+        private string otherMoneyTitle8;
+        private int OtherMoneyAmount1;
+        private int OtherMoneyAmount2;
+        private int OtherMoneyAmount3;
+        private int OtherMoneyAmount4;
+        private int OtherMoneyAmount5;
+        private int OtherMoneyAmount6;
+        private int OtherMoneyAmount7;
+        private int OtherMoneyAmount8;
         /// <summary>
         /// 総金額を計算します。
         /// </summary>
         private void SetTotalAmount()
         {
             int I = OneYenAmount + FiveYenAmount + TenYenAmount + FiftyYenAmount + OneHundredYenAmount + FiveHundredYenAmount + OneThousandYenAmount + FiveThousandYenAmount + TenThousandYenAmount+FiveHundredYenBundleAmount+
-                OneHundredYenBundleAmount+FiftyYenBundleAmount+TenYenBundleAmount+FiveYenBundleAmount+OneYenBundleAmount+OtherMoneyAmount1;
+                OneHundredYenBundleAmount+FiftyYenBundleAmount+TenYenBundleAmount+FiveYenBundleAmount+OneYenBundleAmount+OtherMoneyAmount1 + OtherMoneyAmount2 + OtherMoneyAmount3 + OtherMoneyAmount4
+                + OtherMoneyAmount5 + OtherMoneyAmount6 + OtherMoneyAmount7 + OtherMoneyAmount8;
             TotalAmount = ReturnAmountWithUnit(I);
         }
     }
