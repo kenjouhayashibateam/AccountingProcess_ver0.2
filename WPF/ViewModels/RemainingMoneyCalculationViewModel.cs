@@ -1,13 +1,19 @@
-﻿using Domain;
+﻿using System;
+using Domain;
+using Domain.ValueObject;
 
 namespace WPF.ViewModels
 {
     /// <summary>
     /// 金庫金額計算ビューモデル
     /// </summary>
-    public class RemainingMoneyCalculationViewModel:BaseViewModel
+    public class RemainingMoneyCalculationViewModel : BaseViewModel, ITotalAmount
     {
-        private Cashbox myCashBox=new Cashbox();
+        public void TotalAmountObserver(string totalAmount)
+        {
+            TotalAmount = totalAmount;  
+        }
+        private readonly Cashbox myCashBox=new Cashbox();
 
         //表示用金額
         private string oneYenBundleAmountWithUnit;
@@ -70,8 +76,8 @@ namespace WPF.ViewModels
             set
             {
                 tenThousandYenCount = value;
-                SetMoney(10000, value, ref TenThousandYenAmount);
-                TenThousandYenAmountWithUnit = ReturnAmountWithUnit(TenThousandYenAmount);
+                myCashBox.TenThousandYen.Count = tenThousandYenCount;
+                TenThousandYenAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.TenThousandYen, ref TenThousandYenAmount);
                 CallPropertyChanged();
             }
         }
@@ -85,8 +91,8 @@ namespace WPF.ViewModels
             set
             {
                 fiveThousandYenCount = value;
-                SetMoney(5000, value, ref FiveThousandYenAmount);
-                FiveThousandYenAmountWithUnit = ReturnAmountWithUnit(FiveThousandYenAmount);
+                myCashBox.FiveThousandYen.Count = fiveThousandYenCount;
+                FiveThousandYenAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.FiveThousandYen, ref FiveThousandYenAmount);
                 CallPropertyChanged();
             }
         }
@@ -100,8 +106,8 @@ namespace WPF.ViewModels
             set
             {
                 oneThousandYenCount = value;
-                SetMoney(1000, value, ref OneThousandYenAmount);
-                OneThousandYenAmountWithUnit = ReturnAmountWithUnit(OneThousandYenAmount);
+                myCashBox.OneThousandYen.Count = oneThousandYenCount;
+                OneThousandYenAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.OneThousandYen, ref OneThousandYenAmount);
                 CallPropertyChanged();
             }
         }
@@ -115,8 +121,8 @@ namespace WPF.ViewModels
             set
             {
                 fiveHundredYenCount = value;
-                SetMoney(500, value, ref FiveHundredYenAmount);
-                FiveHundredYenAmountWithUnit = ReturnAmountWithUnit(FiveHundredYenAmount);
+                myCashBox.FiveHundredYen.Count = fiveHundredYenCount;
+                FiveHundredYenAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.FiveHundredYen, ref FiveHundredYenAmount);
                 CallPropertyChanged();
             }
         }
@@ -130,9 +136,9 @@ namespace WPF.ViewModels
             set
             {
                 oneHundredYenCount = value;
-                SetMoney(100, value, ref OneHundredYenAmount);
-                OneHundredYenAmountWithUnit = ReturnAmountWithUnit(OneHundredYenAmount);
-                CallPropertyChanged();
+                myCashBox.OneHundredYen.Count = oneHundredYenCount;
+                OneHundredYenAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.OneHundredYen, ref OneHundredYenAmount);
+                 CallPropertyChanged();
             }
         }
              
@@ -145,8 +151,8 @@ namespace WPF.ViewModels
             set
             {
                 fiftyYenCount = value;
-                SetMoney(50, value, ref FiftyYenAmount);
-                FiftyYenAmountWithUnit = ReturnAmountWithUnit(FiftyYenAmount);
+                myCashBox.FiftyYen.Count = fiftyYenCount;
+                FiftyYenAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.FiftyYen, ref FiftyYenAmount);
                 CallPropertyChanged();
             }
         }
@@ -160,8 +166,8 @@ namespace WPF.ViewModels
             set
             {
                 tenYenCount = value;
-                SetMoney(10, value, ref TenYenAmount);
-                TenYenAmountWithUnit =ReturnAmountWithUnit(TenYenAmount);
+                myCashBox.TenYen.Count = tenYenCount;
+                TenYenAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.TenYen, ref TenYenAmount);
                 CallPropertyChanged();
             }
         }
@@ -175,9 +181,8 @@ namespace WPF.ViewModels
             set
             {
                 fiveYenCount = value;
-                myCashBox.FiftyYen.Count = fiveYenCount;
-                FiveYenAmount = myCashBox.FiveYen.Amount;
-                FiveYenAmountWithUnit = myCashBox.FiveYen.AmountWithUnit();
+                myCashBox.FiveYen.Count = fiveYenCount;
+                FiveYenAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.FiveYen,ref FiveYenAmount);
                 CallPropertyChanged();
             }
         }
@@ -192,10 +197,21 @@ namespace WPF.ViewModels
             {
                 oneYenCount = value;
                 myCashBox.OneYen.Count = oneYenCount;
-                OneYenAmount = myCashBox.OneYen.Amount;
-                OneYenAmountWithUnit = myCashBox.OneYen.AmountWithUnit();
+                OneYenAmountWithUnit= SetProperty_ReturnAmountWithUnit(myCashBox.OneYen,ref OneYenAmount);
                 CallPropertyChanged();
             }
+        }
+
+        /// <summary>
+        /// 指定した金種Amountに値をセットし、表示用金額文字列を返します。
+        /// </summary>
+        /// <param name="moneyCategory">金種</param>
+        /// <param name="amountField">セットする金額フィールド</param>
+        /// <returns></returns>
+        private string SetProperty_ReturnAmountWithUnit(MoneyCategory moneyCategory,ref int amountField)
+        {
+            amountField = moneyCategory.Amount;
+            return moneyCategory.AmountWithUnit();
         }
 
 
@@ -205,19 +221,6 @@ namespace WPF.ViewModels
         /// <param name="moneyAmount">金額</param>
         /// <returns></returns>
         private string ReturnAmountWithUnit(int moneyAmount) => $"{moneyAmount:N0} 円";
-
-        /// <summary>
-        /// 入力された数量を各プロパティにセットします。
-        /// </summary>
-        /// <param name="denomination">金種</param>
-        /// <param name="moneyCount">金銭の数量</param>
-        /// <param name="moneyAmount">金額（数字のみ）</param>
-        /// <param name="amountWithUnit">金額（表示用）</param>
-        private void SetMoney(int denomination,int moneyCount,ref int moneyAmount)
-        {
-            moneyAmount = denomination * moneyCount;
-            SetTotalAmount();
-        }
 
         /// <summary>
         /// 表示用一万円札合計金額
@@ -358,8 +361,8 @@ namespace WPF.ViewModels
             set
             {
                 fiveHundredYenBundleCount = value;
-                SetMoney(25000, value, ref FiveHundredYenBundleAmount);
-                FiveHundredYenBundleAmountWithUnit = ReturnAmountWithUnit(FiveHundredYenBundleAmount);
+                myCashBox.FiveHundredYenBundle.Count = fiveHundredYenBundleCount;
+                FiveHundredYenBundleAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.FiveHundredYenBundle, ref FiveHundredYenBundleAmount);
                 CallPropertyChanged();
             }
         }
@@ -386,8 +389,8 @@ namespace WPF.ViewModels
             set
             {
                 oneHundredYenBundleCount = value;
-                SetMoney(5000,value,ref OneHundredYenBundleAmount);
-                OneHundredYenBundleAmountWithUnit = ReturnAmountWithUnit(OneHundredYenBundleAmount);
+                myCashBox.OneHundredYenBundle.Count = oneHundredYenBundleCount;
+                OneHundredYenBundleAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.OneHundredYenBundle, ref OneHundredYenBundleAmount);
                 CallPropertyChanged();
             }
         }
@@ -414,8 +417,8 @@ namespace WPF.ViewModels
             set
             {
                 fiftyYenBundleCount = value;
-                SetMoney(2500,value,ref FiftyYenBundleAmount);
-                FiftyYenBundleAmountWithUnit =ReturnAmountWithUnit(FiftyYenBundleAmount);
+                myCashBox.FiftyYenBundle.Count = fiftyYenBundleCount;
+                fiftyYenBundleAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.FiftyYenBundle, ref FiftyYenBundleAmount);
                 CallPropertyChanged();
             }
         }
@@ -442,8 +445,8 @@ namespace WPF.ViewModels
             set
             {
                 tenYenBundleCount = value;
-                SetMoney(500,value,ref TenYenBundleAmount);
-                TenYenBundleAmountWithUnit = ReturnAmountWithUnit(TenYenBundleAmount);
+                myCashBox.TenYenBundle.Count = tenYenBundleCount;
+                TenYenBundleAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.TenYenBundle, ref TenYenBundleAmount);
                 CallPropertyChanged();
             }
         }
@@ -470,8 +473,8 @@ namespace WPF.ViewModels
             set
             {
                 fiveYenBundleCount = value;
-                SetMoney(250,value,ref FiveYenBundleAmount);
-                FiveYenBundleAmountWithUnit = ReturnAmountWithUnit(FiveYenBundleAmount);
+                myCashBox.FiveYenBundle.Count = fiveYenBundleCount;
+                FiveYenBundleAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.FiveYenBundle, ref FiveYenBundleAmount);
                 CallPropertyChanged();
             }
         }
@@ -498,8 +501,8 @@ namespace WPF.ViewModels
             set
             {
                 oneYenBundleCount = value;
-                SetMoney(50,value,ref OneYenBundleAmount);
-                OneYenBundleAmountWithUnit = ReturnAmountWithUnit(OneYenBundleAmount);
+                myCashBox.OneYenBundle.Count = oneYenBundleCount;
+                OneYenBundleAmountWithUnit = SetProperty_ReturnAmountWithUnit(myCashBox.OneYenBundle, ref OneYenBundleAmount);
                 CallPropertyChanged();
             }
         }
@@ -514,6 +517,25 @@ namespace WPF.ViewModels
             {
                 oneYenBundleAmountWithUnit = value;
                 CallPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// その他金庫の金額プロパティをセットします
+        /// </summary>
+        /// <param name="value">ビューからの文字列</param>
+        /// <param name="otherMoneyAmount">金額</param>
+        /// <param name="otherMoneyAmountDisplayValue">表示用金額</param>
+        private void SetOtherMoneyAmount(string value, ref int otherMoneyAmount,ref string otherMoneyAmountDisplayValue)
+        {
+            if(!int.TryParse(value,out otherMoneyAmount))
+            {
+                otherMoneyAmount = 0;
+                otherMoneyAmountDisplayValue = "";
+            }
+            else
+            {
+                otherMoneyAmountDisplayValue = otherMoneyAmount.ToString("N0");
             }
         }
 
@@ -535,16 +557,7 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue1;
             set
             {
-                if (!int.TryParse(value, out OtherMoneyAmount1))
-                {
-                    OtherMoneyAmount1 = 0;
-                    otherMoneyAmountDisplayValue1 = "";
-                }
-                else
-                {
-                    otherMoneyAmountDisplayValue1 = OtherMoneyAmount1.ToString("N0");
-                    SetTotalAmount();
-                }
+                SetOtherMoneyAmount(value, ref OtherMoneyAmount1, ref otherMoneyAmountDisplayValue1);
                 CallPropertyChanged();
             }
         }
@@ -564,16 +577,8 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue2;
             set
             {
-                if (!int.TryParse(value, out OtherMoneyAmount2))
-                {
-                    OtherMoneyAmount2 = 0;
-                    otherMoneyAmountDisplayValue2 = "";
-                }
-                else
-                {
-                    otherMoneyAmountDisplayValue2 = OtherMoneyAmount2.ToString("N0");
-                    SetTotalAmount();
-                }
+                SetOtherMoneyAmount(value, ref OtherMoneyAmount2, ref otherMoneyAmountDisplayValue2);
+                CallPropertyChanged();
             }
         }
 
@@ -592,16 +597,8 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue3;
             set
             {
-                if (!int.TryParse(value, out OtherMoneyAmount3))
-                {
-                    OtherMoneyAmount3 = 0;
-                    otherMoneyAmountDisplayValue3 = "";
-                }
-                else
-                {
-                    otherMoneyAmountDisplayValue3 = OtherMoneyAmount3.ToString("N0");
-                    SetTotalAmount();
-                }
+                SetOtherMoneyAmount(value, ref OtherMoneyAmount3, ref otherMoneyAmountDisplayValue3);
+                CallPropertyChanged();
             }
         }
 
@@ -620,16 +617,8 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue4;
             set
             {
-                if (!int.TryParse(value, out OtherMoneyAmount4))
-                {
-                    OtherMoneyAmount4 = 0;
-                    otherMoneyAmountDisplayValue4 = "";
-                }
-                else
-                {
-                    otherMoneyAmountDisplayValue4 = OtherMoneyAmount4.ToString("N0");
-                    SetTotalAmount();
-                }
+                SetOtherMoneyAmount(value, ref OtherMoneyAmount4, ref otherMoneyAmountDisplayValue4);
+                CallPropertyChanged();
             }
         }
 
@@ -648,16 +637,8 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue5;
             set
             {
-                if (!int.TryParse(value, out OtherMoneyAmount5))
-                {
-                    OtherMoneyAmount5 = 0;
-                    otherMoneyAmountDisplayValue5 = "";
-                }
-                else
-                {
-                    otherMoneyAmountDisplayValue5 = OtherMoneyAmount5.ToString("N0");
-                    SetTotalAmount();
-                }
+                SetOtherMoneyAmount(value, ref OtherMoneyAmount5, ref otherMoneyAmountDisplayValue5);
+                CallPropertyChanged();
             }
         }
 
@@ -676,16 +657,8 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue6;
             set
             {
-                if (!int.TryParse(value, out OtherMoneyAmount6))
-                {
-                    OtherMoneyAmount6 = 0;
-                    otherMoneyAmountDisplayValue6 = "";
-                }
-                else
-                {
-                    otherMoneyAmountDisplayValue6 = OtherMoneyAmount6.ToString("N0");
-                    SetTotalAmount();
-                }
+                SetOtherMoneyAmount(value, ref OtherMoneyAmount6, ref otherMoneyAmountDisplayValue6);
+                CallPropertyChanged();
             }
         }
 
@@ -704,16 +677,8 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue7;
             set
             {
-                if (!int.TryParse(value, out OtherMoneyAmount7))
-                {
-                    OtherMoneyAmount7 = 0;
-                    otherMoneyAmountDisplayValue7 = "";
-                }
-                else
-                {
-                    otherMoneyAmountDisplayValue7 = OtherMoneyAmount7.ToString("N0");
-                    SetTotalAmount();
-                }
+                SetOtherMoneyAmount(value, ref OtherMoneyAmount7, ref otherMoneyAmountDisplayValue7);
+                CallPropertyChanged();
             }
         }
 
@@ -732,16 +697,8 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue8;
             set
             {
-                if (!int.TryParse(value, out OtherMoneyAmount8))
-                {
-                    OtherMoneyAmount8 = 0;
-                    otherMoneyAmountDisplayValue8 = "";
-                }
-                else
-                {
-                    otherMoneyAmountDisplayValue8 = OtherMoneyAmount8.ToString("N0");
-                    SetTotalAmount();
-                }
+                SetOtherMoneyAmount(value, ref OtherMoneyAmount8, ref otherMoneyAmountDisplayValue8);
+                CallPropertyChanged();
             }
         }
 
@@ -769,15 +726,5 @@ namespace WPF.ViewModels
         private int OtherMoneyAmount6;
         private int OtherMoneyAmount7;
         private int OtherMoneyAmount8;
-        /// <summary>
-        /// 総金額を計算します。
-        /// </summary>
-        private void SetTotalAmount()
-        {
-            int I = OneYenAmount + FiveYenAmount + TenYenAmount + FiftyYenAmount + OneHundredYenAmount + FiveHundredYenAmount + OneThousandYenAmount + FiveThousandYenAmount + TenThousandYenAmount+FiveHundredYenBundleAmount+
-                OneHundredYenBundleAmount+FiftyYenBundleAmount+TenYenBundleAmount+FiveYenBundleAmount+OneYenBundleAmount+OtherMoneyAmount1 + OtherMoneyAmount2 + OtherMoneyAmount3 + OtherMoneyAmount4
-                + OtherMoneyAmount5 + OtherMoneyAmount6 + OtherMoneyAmount7 + OtherMoneyAmount8;
-            TotalAmount = ReturnAmountWithUnit(I);
-        }
     }
 }

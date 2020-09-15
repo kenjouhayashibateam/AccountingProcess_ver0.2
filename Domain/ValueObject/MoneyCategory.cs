@@ -19,7 +19,7 @@ namespace Domain.ValueObject
 
         public string AmountWithUnit()
         {
-            return $"{Amount:N0} 円" ;
+            return $"{Amount:N0} {Properties.Resources.MoneyUnit}" ;
         }
     }
 }

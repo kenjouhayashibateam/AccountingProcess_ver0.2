@@ -59,5 +59,14 @@ namespace Domain.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   円 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string MoneyUnit {
+            get {
+                return ResourceManager.GetString("MoneyUnit", resourceCulture);
+            }
+        }
     }
 }
