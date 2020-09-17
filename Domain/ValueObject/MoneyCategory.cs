@@ -8,14 +8,20 @@ namespace Domain.ValueObject
     {
         private readonly int Category;
         private int count;
+        public string Name;
 
+        public enum Denomination
+        {
+            OneYen
+        }
+        
         public MoneyCategory(int category)
         {
             Category = category;
         }
 
         public int Count { set => count = value; }
-        public int Amount { get => Category * count; }
+        public int Amount { get => Category * count;}
 
         public string AmountWithUnit()
         {

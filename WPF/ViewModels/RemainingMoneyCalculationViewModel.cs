@@ -1,18 +1,16 @@
 ﻿using System;
+using System.Windows.Controls;
 using Domain;
 using Domain.ValueObject;
+using static Domain.ValueObject.MoneyCategory;
 
 namespace WPF.ViewModels
 {
     /// <summary>
     /// 金庫金額計算ビューモデル
     /// </summary>
-    public class RemainingMoneyCalculationViewModel : BaseViewModel, ITotalAmount
+    public class RemainingMoneyCalculationViewModel : BaseViewModel
     {
-        public void TotalAmountObserver(string totalAmount)
-        {
-            TotalAmount = totalAmount;  
-        }
         private readonly Cashbox myCashBox=new Cashbox();
 
         //表示用金額
@@ -196,6 +194,7 @@ namespace WPF.ViewModels
             set
             {
                 oneYenCount = value;
+                myCashBox.MoneyCategorys[Denomination.OneYen].Count = oneYenCount;
                 myCashBox.OneYen.Count = oneYenCount;
                 OneYenAmountWithUnit= SetProperty_ReturnAmountWithUnit(myCashBox.OneYen,ref OneYenAmount);
                 CallPropertyChanged();
@@ -211,16 +210,9 @@ namespace WPF.ViewModels
         private string SetProperty_ReturnAmountWithUnit(MoneyCategory moneyCategory,ref int amountField)
         {
             amountField = moneyCategory.Amount;
+            TotalAmount = myCashBox.GetTotalAmountWithUnit();
             return moneyCategory.AmountWithUnit();
         }
-
-
-        /// <summary>
-        /// 表示用の金額を文字列で返します。
-        /// </summary>
-        /// <param name="moneyAmount">金額</param>
-        /// <returns></returns>
-        private string ReturnAmountWithUnit(int moneyAmount) => $"{moneyAmount:N0} 円";
 
         /// <summary>
         /// 表示用一万円札合計金額
@@ -526,19 +518,17 @@ namespace WPF.ViewModels
         /// <param name="value">ビューからの文字列</param>
         /// <param name="otherMoneyAmount">金額</param>
         /// <param name="otherMoneyAmountDisplayValue">表示用金額</param>
-        private void SetOtherMoneyAmount(string value, ref int otherMoneyAmount,ref string otherMoneyAmountDisplayValue)
+        private void SetOtherMoneyAmount(string value,int otherMoneyNumber,ref string otherMoneyAmountDisplayValue)
         {
-            if(!int.TryParse(value,out otherMoneyAmount))
-            {
-                otherMoneyAmount = 0;
-                otherMoneyAmountDisplayValue = "";
-            }
-            else
-            {
-                otherMoneyAmountDisplayValue = otherMoneyAmount.ToString("N0");
-            }
+            otherMoneyAmountDisplayValue = int.TryParse(value, out int i) ? i.ToString("N0") : string.Empty;
+            SetTotalAmountAddOtherMoney(otherMoneyNumber, i);
         }
 
+        private void SetTotalAmountAddOtherMoney(int otherMoneyNumber,int value)
+        {
+            myCashBox.OtherMoneys[otherMoneyNumber-1]=value;
+            TotalAmount = myCashBox.GetTotalAmountWithUnit();
+        }
         /// <summary>
         /// その他金庫等1
         /// </summary>
@@ -557,7 +547,7 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue1;
             set
             {
-                SetOtherMoneyAmount(value, ref OtherMoneyAmount1, ref otherMoneyAmountDisplayValue1);
+                SetOtherMoneyAmount(value,1, ref otherMoneyAmountDisplayValue1);
                 CallPropertyChanged();
             }
         }
@@ -577,7 +567,7 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue2;
             set
             {
-                SetOtherMoneyAmount(value, ref OtherMoneyAmount2, ref otherMoneyAmountDisplayValue2);
+                SetOtherMoneyAmount(value,2, ref otherMoneyAmountDisplayValue2);
                 CallPropertyChanged();
             }
         }
@@ -597,7 +587,7 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue3;
             set
             {
-                SetOtherMoneyAmount(value, ref OtherMoneyAmount3, ref otherMoneyAmountDisplayValue3);
+                SetOtherMoneyAmount(value,3, ref otherMoneyAmountDisplayValue3);
                 CallPropertyChanged();
             }
         }
@@ -617,7 +607,7 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue4;
             set
             {
-                SetOtherMoneyAmount(value, ref OtherMoneyAmount4, ref otherMoneyAmountDisplayValue4);
+                SetOtherMoneyAmount(value,4, ref otherMoneyAmountDisplayValue4);
                 CallPropertyChanged();
             }
         }
@@ -637,7 +627,7 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue5;
             set
             {
-                SetOtherMoneyAmount(value, ref OtherMoneyAmount5, ref otherMoneyAmountDisplayValue5);
+                SetOtherMoneyAmount(value,5, ref otherMoneyAmountDisplayValue5);
                 CallPropertyChanged();
             }
         }
@@ -657,7 +647,7 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue6;
             set
             {
-                SetOtherMoneyAmount(value, ref OtherMoneyAmount6, ref otherMoneyAmountDisplayValue6);
+                SetOtherMoneyAmount(value,6, ref otherMoneyAmountDisplayValue6);
                 CallPropertyChanged();
             }
         }
@@ -677,7 +667,7 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue7;
             set
             {
-                SetOtherMoneyAmount(value, ref OtherMoneyAmount7, ref otherMoneyAmountDisplayValue7);
+                SetOtherMoneyAmount(value,7, ref otherMoneyAmountDisplayValue7);
                 CallPropertyChanged();
             }
         }
@@ -697,7 +687,7 @@ namespace WPF.ViewModels
             get => otherMoneyAmountDisplayValue8;
             set
             {
-                SetOtherMoneyAmount(value, ref OtherMoneyAmount8, ref otherMoneyAmountDisplayValue8);
+                SetOtherMoneyAmount(value,8, ref otherMoneyAmountDisplayValue8);
                 CallPropertyChanged();
             }
         }
@@ -718,13 +708,5 @@ namespace WPF.ViewModels
         private string otherMoneyTitle6;
         private string otherMoneyTitle7;
         private string otherMoneyTitle8;
-        private int OtherMoneyAmount1;
-        private int OtherMoneyAmount2;
-        private int OtherMoneyAmount3;
-        private int OtherMoneyAmount4;
-        private int OtherMoneyAmount5;
-        private int OtherMoneyAmount6;
-        private int OtherMoneyAmount7;
-        private int OtherMoneyAmount8;
     }
 }
