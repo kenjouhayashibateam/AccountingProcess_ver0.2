@@ -1,5 +1,4 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Runtime.InteropServices;
 using WPF.ViewModels;
 
 namespace Tests
@@ -70,14 +69,15 @@ namespace Tests
                 OtherMoneyAmountDisplayValue7 = "a",
                 OtherMoneyAmountDisplayValue8 = "a",
             };
-            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue1, "");
-            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue2, "");
-            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue3, "");
-            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue4, "");
-            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue5, "");
-            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue6, "");
-            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue7, "");
-            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue8, "");
+
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue1, string.Empty);
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue2, string.Empty);
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue3, string.Empty);
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue4, string.Empty);
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue5, string.Empty);
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue6, string.Empty);
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue7, string.Empty);
+            Assert.AreEqual(vm.OtherMoneyAmountDisplayValue8, string.Empty);
 
             vm.OtherMoneyAmountDisplayValue1 = "1000";
             vm.OtherMoneyAmountDisplayValue2 = "1000";
@@ -87,6 +87,7 @@ namespace Tests
             vm.OtherMoneyAmountDisplayValue6 = "1000";
             vm.OtherMoneyAmountDisplayValue7 = "1000";
             vm.OtherMoneyAmountDisplayValue8 = "1000";
+
             Assert.AreEqual(vm.OtherMoneyAmountDisplayValue1, "1,000");
             Assert.AreEqual(vm.OtherMoneyAmountDisplayValue2, "1,000");
             Assert.AreEqual(vm.OtherMoneyAmountDisplayValue3, "1,000");

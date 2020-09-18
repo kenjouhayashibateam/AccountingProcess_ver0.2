@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Controls;
-using Domain;
-using Domain.ValueObject;
+﻿using Domain;
 using static Domain.ValueObject.MoneyCategory;
 
 namespace WPF.ViewModels
@@ -45,27 +42,10 @@ namespace WPF.ViewModels
         private int fiftyYenBundleCount;
         private int oneHundredYenBundleCount;
         private int fiveHundredYenBundleCount;
-        //単体金銭金額
-        //private int OneYenAmount;
-        //private int FiveYenAmount;
-        //private int TenYenAmount;
-        //private int FiftyYenAmount;
-        //private int OneHundredYenAmount;
-        //private int FiveHundredYenAmount;
-        //private int OneThousandYenAmount;
-        //private int FiveThousandYenAmount;
-        //private int TenThousandYenAmount;
-        ////束金銭金額
-        //private int FiveHundredYenBundleAmount;
-        //private int OneHundredYenBundleAmount;
-        //private int FiftyYenBundleAmount;
-        //private int TenYenBundleAmount;
-        //private int FiveYenBundleAmount;
-        //private int OneYenBundleAmount;
         //総金額
         private string totalAmount;
 
-          /// <summary>
+        /// <summary>
         /// 1万円札の枚数
         /// </summary>
          public int TenThousandYenCount
@@ -76,7 +56,7 @@ namespace WPF.ViewModels
                 tenThousandYenCount = value;
                 myCashBox.MoneyCategorys[Denomination.TenThousandYen].Count = tenThousandYenCount;
                 TenThousandYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.TenThousandYen].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -92,7 +72,7 @@ namespace WPF.ViewModels
                 fiveThousandYenCount = value;
                 myCashBox.MoneyCategorys[Denomination.FiveThousandYen].Count = fiveThousandYenCount;
                 FiveThousandYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.FiveThousandYen].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -108,7 +88,7 @@ namespace WPF.ViewModels
                 oneThousandYenCount = value;
                 myCashBox.MoneyCategorys[Denomination.OneThousandYen].Count = oneThousandYenCount;
                 OneThousandYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.OneThousandYen].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -124,7 +104,7 @@ namespace WPF.ViewModels
                 fiveHundredYenCount = value;
                 myCashBox.MoneyCategorys[Denomination.FiveHundredYen].Count = fiveHundredYenCount;
                 FiveHundredYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.FiveHundredYen].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -140,7 +120,7 @@ namespace WPF.ViewModels
                 oneHundredYenCount = value;
                 myCashBox.MoneyCategorys[Denomination.OneHundredYen].Count = oneHundredYenCount;
                 OneHundredYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.OneHundredYen].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -156,7 +136,7 @@ namespace WPF.ViewModels
                 fiftyYenCount = value;
                 myCashBox.MoneyCategorys[Denomination.FiftyYen].Count = fiftyYenCount;
                 FiftyYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.FiftyYen].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -172,7 +152,7 @@ namespace WPF.ViewModels
                 tenYenCount = value;
                 myCashBox.MoneyCategorys[Denomination.TenYen].Count = tenYenCount;
                 TenYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.TenYen].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -188,7 +168,7 @@ namespace WPF.ViewModels
                 fiveYenCount = value;
                 myCashBox.MoneyCategorys[Denomination.FiveYen].Count = fiveYenCount;
                 FiveYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.FiveYen].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -204,7 +184,7 @@ namespace WPF.ViewModels
                 oneYenCount = value;
                 myCashBox.MoneyCategorys[Denomination.OneYen].Count = oneYenCount;
                 OneYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.OneYen].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -354,7 +334,7 @@ namespace WPF.ViewModels
                 fiveHundredYenBundleCount = value;
                 myCashBox.MoneyCategorys[Denomination.FiveHundredYenBundle].Count = fiveHundredYenBundleCount;
                 FiveHundredYenBundleAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.FiveHundredYenBundle].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -383,7 +363,7 @@ namespace WPF.ViewModels
                 oneHundredYenBundleCount = value;
                 myCashBox.MoneyCategorys[Denomination.OneHundredYenBundle].Count = oneHundredYenBundleCount;
                 OneHundredYenBundleAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.OneHundredYenBundle].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -412,7 +392,7 @@ namespace WPF.ViewModels
                 fiftyYenBundleCount = value;
                 myCashBox.MoneyCategorys[Denomination.FiftyYenBundle].Count = fiftyYenBundleCount;
                 FiftyYenBundleAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.FiftyYenBundle].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -441,7 +421,7 @@ namespace WPF.ViewModels
                 tenYenBundleCount = value;
                 myCashBox.MoneyCategorys[Denomination.TenYenBundle].Count = tenYenBundleCount;
                 TenYenBundleAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.TenYenBundle].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -470,7 +450,7 @@ namespace WPF.ViewModels
                 fiveYenBundleCount = value;
                 myCashBox.MoneyCategorys[Denomination.FiveYenBundle].Count = fiveYenBundleCount;
                 FiveYenBundleAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.FiveYenBundle].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -499,7 +479,7 @@ namespace WPF.ViewModels
                 oneYenBundleCount = value;
                 myCashBox.MoneyCategorys[Denomination.OneYenBundle].Count = oneYenBundleCount;
                 OneYenBundleAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.OneYenBundle].Amount);
-                TotalAmount = myCashBox.GetTotalAmountWithUnit();
+                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
                 CallPropertyChanged();
             }
         }
@@ -532,7 +512,7 @@ namespace WPF.ViewModels
         private void SetTotalAmountAddOtherMoney(int otherMoneyNumber,int value)
         {
             myCashBox.OtherMoneys[otherMoneyNumber-1]=value;
-            TotalAmount = myCashBox.GetTotalAmountWithUnit();
+            TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
         }
         /// <summary>
         /// その他金庫等1

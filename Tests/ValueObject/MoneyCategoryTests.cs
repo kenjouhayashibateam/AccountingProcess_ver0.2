@@ -1,8 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Domain.ValueObject;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Domain.ValueObject.Tests
 {
@@ -18,7 +14,6 @@ namespace Domain.ValueObject.Tests
             };
 
             Assert.AreEqual(money.Amount, 1000);
-            Assert.AreEqual(money.AmountWithUnit(), "1,000 円");
         }
     }
 }
