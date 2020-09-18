@@ -12,7 +12,21 @@ namespace Domain.ValueObject
 
         public enum Denomination
         {
-            OneYen
+            OneYen,
+            FiveYen,
+            TenYen,
+            FiftyYen,
+            OneHundredYen,
+            FiveHundredYen,
+            OneThousandYen,
+            FiveThousandYen,
+            TenThousandYen,
+            OneYenBundle,
+            FiveYenBundle,
+            TenYenBundle,
+            FiftyYenBundle,
+            OneHundredYenBundle,
+            FiveHundredYenBundle
         }
         
         public MoneyCategory(int category)

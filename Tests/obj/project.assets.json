@@ -5754,19 +5754,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\k_hayashiba\\.nuget\\packages\\": {}
+    "C:\\Users\\001\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\Tests\\Tests.csproj",
+      "projectUniqueName": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Tests\\Tests.csproj",
       "projectName": "Tests",
-      "projectPath": "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\Tests\\Tests.csproj",
-      "packagesPath": "C:\\Users\\k_hayashiba\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\Tests\\obj\\",
+      "projectPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Tests\\Tests.csproj",
+      "packagesPath": "C:\\Users\\001\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\k_hayashiba\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\001\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5779,11 +5779,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\Domain\\Domain.csproj"
+            "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj": {
-              "projectPath": "C:\\Users\\k_hayashiba\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj"
+            "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj": {
+              "projectPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj"
             }
           }
         }
