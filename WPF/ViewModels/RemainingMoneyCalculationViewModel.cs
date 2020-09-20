@@ -1,5 +1,8 @@
 ﻿using Domain;
-using static Domain.ValueObject.MoneyCategory;
+using Domain.Repositories;
+using WPF.ViewModels.Commands;
+using static Domain.Entities.ValueObjects.MoneyCategory;
+using Infrastructure;
 
 namespace WPF.ViewModels
 {
@@ -8,8 +11,11 @@ namespace WPF.ViewModels
     /// </summary>
     public class RemainingMoneyCalculationViewModel : BaseViewModel
     {
-        private readonly Cashbox myCashBox=new Cashbox();
+        private readonly Cashbox myCashBox = new Cashbox();
+        private readonly IDataOutput DataOutput;
+        public DelegateCommand OutputCommand { get; }
 
+        #region
         //表示用金額
         private string oneYenBundleAmountWithUnit;
         private string fiveYenBundleAmountWithUnit;
@@ -44,11 +50,12 @@ namespace WPF.ViewModels
         private int fiveHundredYenBundleCount;
         //総金額
         private string totalAmount;
+        #endregion
 
         /// <summary>
         /// 1万円札の枚数
         /// </summary>
-         public int TenThousandYenCount
+        public int TenThousandYenCount
         {
             get => tenThousandYenCount;
             set
@@ -189,10 +196,16 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// 表示用金額の文字列を返します。
+        /// </summary>
+        /// <param name="amount">金額</param>
+        /// <returns></returns>
         private string ReturnAmountWithUnit(int amount)
         {
             return $"{amount:N0} {Properties.Resources.Unit}";
         }
+
         /// <summary>
         /// 表示用一万円札合計金額
         /// </summary>
@@ -506,16 +519,12 @@ namespace WPF.ViewModels
         private void SetOtherMoneyAmount(string value,int otherMoneyNumber,ref string otherMoneyAmountDisplayValue)
         {
             otherMoneyAmountDisplayValue = int.TryParse(value, out int i) ? i.ToString("N0") : string.Empty;
-            SetTotalAmountAddOtherMoney(otherMoneyNumber, i);
-        }
-
-        private void SetTotalAmountAddOtherMoney(int otherMoneyNumber,int value)
-        {
-            myCashBox.OtherMoneys[otherMoneyNumber-1]=value;
+            myCashBox.OtherMoneys[otherMoneyNumber - 1] = i;
             TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
         }
+
         /// <summary>
-        /// その他金庫等1
+        /// その他金庫等1の内容名
         /// </summary>
         public string OtherMoneyTitle1
         {
@@ -527,6 +536,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等1　表示用金額
+        /// </summary>
         public string OtherMoneyAmountDisplayValue1
         {
             get => otherMoneyAmountDisplayValue1;
@@ -537,6 +549,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等2　内容名
+        /// </summary>
         public string OtherMoneyTitle2
         {
             get => otherMoneyTitle2;
@@ -547,6 +562,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等2　表示用金額
+        /// </summary>
         public string OtherMoneyAmountDisplayValue2
         {
             get => otherMoneyAmountDisplayValue2;
@@ -557,6 +575,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等3　内容名
+        /// </summary>
         public string OtherMoneyTitle3
         {
             get => otherMoneyTitle3;
@@ -567,6 +588,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等3　表示用金額
+        /// </summary>
         public string OtherMoneyAmountDisplayValue3
         {
             get => otherMoneyAmountDisplayValue3;
@@ -577,6 +601,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等4　内容名
+        /// </summary>
         public string OtherMoneyTitle4
         {
             get => otherMoneyTitle4;
@@ -587,6 +614,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等4　表示用金額
+        /// </summary>
         public string OtherMoneyAmountDisplayValue4
         {
             get => otherMoneyAmountDisplayValue4;
@@ -597,6 +627,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等5　内容名
+        /// </summary>
         public string OtherMoneyTitle5
         {
             get => otherMoneyTitle5;
@@ -607,6 +640,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等5　表示用金額
+        /// </summary>
         public string OtherMoneyAmountDisplayValue5
         {
             get => otherMoneyAmountDisplayValue5;
@@ -617,6 +653,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等6　内容名
+        /// </summary>
         public string OtherMoneyTitle6
         {
             get => otherMoneyTitle6;
@@ -627,6 +666,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等6　表示用金額
+        /// </summary>
         public string OtherMoneyAmountDisplayValue6
         {
             get => otherMoneyAmountDisplayValue6;
@@ -637,6 +679,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等7　内容名
+        /// </summary>
         public string OtherMoneyTitle7
         {
             get => otherMoneyTitle7;
@@ -647,6 +692,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等7　表示用金額
+        /// </summary>
         public string OtherMoneyAmountDisplayValue7
         {
             get => otherMoneyAmountDisplayValue7;
@@ -657,6 +705,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等8　内容名
+        /// </summary>
         public string OtherMoneyTitle8
         {
             get => otherMoneyTitle8;
@@ -667,6 +718,9 @@ namespace WPF.ViewModels
             }
         }
 
+        /// <summary>
+        /// その他金庫等8　表示用金額
+        /// </summary>
         public string OtherMoneyAmountDisplayValue8
         {
             get => otherMoneyAmountDisplayValue8;
@@ -677,6 +731,7 @@ namespace WPF.ViewModels
             }
         }
 
+        #region
         private string otherMoneyAmountDisplayValue1;
         private string otherMoneyAmountDisplayValue2;
         private string otherMoneyAmountDisplayValue3;
@@ -693,5 +748,20 @@ namespace WPF.ViewModels
         private string otherMoneyTitle6;
         private string otherMoneyTitle7;
         private string otherMoneyTitle8;
+        #endregion
+
+        public RemainingMoneyCalculationViewModel(IDataOutput dataOutput)
+        {
+            DataOutput = dataOutput;
+            OutputCommand = new DelegateCommand(() => { Output(); }, () => { return true; });
+        }
+
+        public RemainingMoneyCalculationViewModel() : this(new ExcelOutputInfrastructure()){}
+
+        public void Output()
+        {
+            DataOutput.CashBoxDataOutput(myCashBox);
+        }
+
     }
 }

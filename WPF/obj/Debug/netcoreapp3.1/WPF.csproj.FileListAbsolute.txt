@@ -50,3 +50,8 @@ C:\Users\k_hayashiba\Source\Repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcore
 C:\Users\k_hayashiba\Source\Repos\AccountingProcess_ver0.2\WPF\obj\Debug\netcoreapp3.1\WPF.csproj.CopyComplete
 C:\Users\001\Source\Repos\AccountingProcess_ver0.2\WPF\obj\Debug\netcoreapp3.1\WPF.Properties.Resources.resources
 C:\Users\001\Source\Repos\AccountingProcess_ver0.2\WPF\obj\Debug\netcoreapp3.1\WPF.csproj.GenerateResource.cache
+C:\Users\001\source\repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\ClosedXML.dll
+C:\Users\001\source\repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+C:\Users\001\source\repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\ExcelNumberFormat.dll
+C:\Users\001\source\repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\Infrastructure.dll
+C:\Users\001\source\repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\Infrastructure.pdb

@@ -1,7 +1,7 @@
-﻿using Domain.ValueObject;
+﻿using Domain.Entities.ValueObjects;
 using System.Collections.Generic;
 using System.Linq;
-using static Domain.ValueObject.MoneyCategory;
+using static Domain.Entities.ValueObjects.MoneyCategory;
 
 namespace Domain
 {
@@ -34,7 +34,7 @@ namespace Domain
         {
             int I = OtherMoneys.Sum();
 
-            foreach (KeyValuePair<MoneyCategory.Denomination,MoneyCategory>mc in MoneyCategorys)
+            foreach (KeyValuePair<Denomination, MoneyCategory>mc in MoneyCategorys)
             {
                 I += mc.Value.Amount;
             }

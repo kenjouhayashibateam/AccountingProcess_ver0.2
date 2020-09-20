@@ -4,6 +4,11 @@ C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\bin\Debug\netc
 C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csprojAssemblyReference.cache
 C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.AssemblyInfoInputs.cache
 C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.AssemblyInfo.cs
-C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.dll
 C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.pdb
+C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csproj.CopyComplete
+C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.Properties.Resources.resources
+C:\Users\001\Source\Repos\AccountingProcess_ver0.2\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csproj.GenerateResource.cache
+C:\Users\001\source\repos\AccountingProcess_ver0.2\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.csproj.CoreCompileInputs.cache
