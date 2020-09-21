@@ -753,6 +753,8 @@ namespace WPF.ViewModels
         public RemainingMoneyCalculationViewModel(IDataOutput dataOutput)
         {
             DataOutput = dataOutput;
+            
+            //引数()=>{}の意味　小辻さんに質問する
             OutputCommand = new DelegateCommand(() => { Output(); }, () => { return true; });
         }
 

@@ -120,7 +120,10 @@
   <data name="LogFilePath" xml:space="preserve">
     <value>.\logs\ExceptionLogs.txt</value>
   </data>
-  <data name="SavePath" xml:space="preserve">
-    <value>.\files\AccountingProcessFile.xlsx</value>
+  <data name="SaveFile" xml:space="preserve">
+    <value>\AccountingProcessFile.xlsx</value>
+  </data>
+  <data name="SaveFolderPath" xml:space="preserve">
+    <value>.\files</value>
   </data>
 </root>

@@ -70,11 +70,20 @@ namespace Infrastructure.Properties {
         }
         
         /// <summary>
-        ///   .\files\AccountingProcessFile.xlsx に類似しているローカライズされた文字列を検索します。
+        ///   \AccountingProcessFile.xlsx に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string SavePath {
+        internal static string SaveFile {
             get {
-                return ResourceManager.GetString("SavePath", resourceCulture);
+                return ResourceManager.GetString("SaveFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   .\files に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SaveFolderPath {
+            get {
+                return ResourceManager.GetString("SaveFolderPath", resourceCulture);
             }
         }
     }
