@@ -3,6 +3,7 @@ using Domain.Repositories;
 using WPF.ViewModels.Commands;
 using static Domain.Entities.ValueObjects.MoneyCategory;
 using Infrastructure;
+using ClassLibrary1;
 
 namespace WPF.ViewModels
 {
@@ -14,7 +15,7 @@ namespace WPF.ViewModels
         private readonly Cashbox myCashBox = new Cashbox();
         private readonly IDataOutput DataOutput;
         public DelegateCommand OutputCommand { get; }
-
+        public Class1 test = new Class1();
         #region
         //表示用金額
         private string oneYenBundleAmountWithUnit;
@@ -189,9 +190,10 @@ namespace WPF.ViewModels
             set
             {
                 oneYenCount = value;
-                myCashBox.MoneyCategorys[Denomination.OneYen].Count = oneYenCount;
-                OneYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.OneYen].Amount);
-                TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
+                //myCashBox.MoneyCategorys[Denomination.OneYen].Count = oneYenCount;
+                //OneYenAmountWithUnit = ReturnAmountWithUnit(myCashBox.MoneyCategorys[Denomination.OneYen].Amount);
+                //TotalAmount = ReturnAmountWithUnit(myCashBox.GetTotalAmount());
+                TotalAmount = test.ReturnText();
                 CallPropertyChanged();
             }
         }

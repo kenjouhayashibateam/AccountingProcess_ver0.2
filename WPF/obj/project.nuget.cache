@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RjwHzLeIlu6hje273D7OU6maEgiBYUbCm9YnR8b5s6B4h9Cq/44Pr64lCMPDoK45Tb0uuLznpoFhdsmOS062pg==",
+  "dgSpecHash": "I7YWoJLTBBwXG2ZEnqifDj8bHeqqAfS/UJBMGmIYyw0LHQJq782uYyTY0Is8Z/PVVQWaL5PjF7fSbalZJ7EkGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj",
+  "projectFilePath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\001\\.nuget\\packages\\closedxml\\0.95.3\\closedxml.0.95.3.nupkg.sha512",
     "C:\\Users\\001\\.nuget\\packages\\documentformat.openxml\\2.7.2\\documentformat.openxml.2.7.2.nupkg.sha512",

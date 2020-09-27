@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IKZufdGEmiMuZLrypkRpDJhtLzsQly3BjwozoK1b4+pEutlbubUn3/gvILtujNjFH1JrfIAcD/ZAHl7XECjrAw==",
+  "dgSpecHash": "UnVDF7v+A+9DYDPqTpEJ3DUrGjBDhfFeD2SZeJdQIl+4q3p8Ow5KbU/FCKCz/x0RQ3NLcJ8lKgr9zvD1F8kyEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\UnitTestProject\\UnitTestProject.csproj",
+  "projectFilePath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\UnitTestProject\\UnitTestProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\001\\.nuget\\packages\\closedxml\\0.95.3\\closedxml.0.95.3.nupkg.sha512",
     "C:\\Users\\001\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",

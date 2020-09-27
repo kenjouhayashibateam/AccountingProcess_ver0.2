@@ -1718,6 +1718,15 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "ClassLibrary1/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/ClassLibrary1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClassLibrary1.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -1746,6 +1755,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "ClassLibrary1": "1.0.0",
           "Domain": "1.0.0",
           "Infrastructure": "1.0.0"
         },
@@ -5968,6 +5978,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "ClassLibrary1/1.0.0": {
+      "type": "project",
+      "path": "../ClassLibrary1/ClassLibrary1.csproj",
+      "msbuildProject": "../ClassLibrary1/ClassLibrary1.csproj"
+    },
     "Domain/1.0.0": {
       "type": "project",
       "path": "../Domain/Domain.csproj",
@@ -6000,11 +6015,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\UnitTestProject\\UnitTestProject.csproj",
+      "projectUniqueName": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\UnitTestProject\\UnitTestProject.csproj",
       "projectName": "UnitTestProject",
-      "projectPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\UnitTestProject\\UnitTestProject.csproj",
+      "projectPath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\UnitTestProject\\UnitTestProject.csproj",
       "packagesPath": "C:\\Users\\001\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\UnitTestProject\\obj\\",
+      "outputPath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\UnitTestProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\001\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6020,11 +6035,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Domain\\Domain.csproj"
+            "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj": {
-              "projectPath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj"
+            "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj": {
+              "projectPath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\WPF\\WPF.csproj"
             }
           }
         }

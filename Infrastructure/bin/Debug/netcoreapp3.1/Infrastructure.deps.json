@@ -10,7 +10,8 @@
         "dependencies": {
           "ClosedXML": "0.95.3",
           "Domain": "1.0.0",
-          "Microsoft.Office.Interop.Excel": "15.0.0.0"
+          "Microsoft.Office.Interop.Excel": "15.0.0.0",
+          "Interop.Microsoft.Office.Core": "2.8.0.0"
         },
         "runtime": {
           "Infrastructure.dll": {}
@@ -796,6 +797,14 @@
             "fileVersion": "15.0.4569.1506"
           }
         }
+      },
+      "Interop.Microsoft.Office.Core/2.8.0.0": {
+        "runtime": {
+          "Interop.Microsoft.Office.Core.dll": {
+            "assemblyVersion": "2.8.0.0",
+            "fileVersion": "2.8.0.0"
+          }
+        }
       }
     }
   },
@@ -1371,6 +1380,11 @@
       "sha512": ""
     },
     "Microsoft.Office.Interop.Excel/15.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Interop.Microsoft.Office.Core/2.8.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

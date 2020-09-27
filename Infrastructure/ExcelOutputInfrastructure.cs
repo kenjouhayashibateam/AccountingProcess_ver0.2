@@ -24,6 +24,7 @@ namespace Infrastructure
         private void ExcelOpen()
         {
             string openPath =System.IO.Path.GetFullPath(Properties.Resources.SaveFolderPath+Properties.Resources.SaveFile);
+            
             try
             {
                 myWorkbook = new XLWorkbook();

@@ -18,6 +18,14 @@
       <EmbedInteropTypes>true</EmbedInteropTypes>
       <Private>true</Private>
     </COMReference>
+    <COMReference Include="Microsoft.Office.Core.dll">
+      <Guid>2df8d04c-5bfa-101b-bde5-00aa0044de52</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+    </COMReference>
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 

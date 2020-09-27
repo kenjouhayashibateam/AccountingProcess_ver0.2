@@ -55,3 +55,5 @@ C:\Users\001\source\repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\D
 C:\Users\001\source\repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\ExcelNumberFormat.dll
 C:\Users\001\source\repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\Infrastructure.dll
 C:\Users\001\source\repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\Infrastructure.pdb
+C:\Users\001\Source\Repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\ClassLibrary1.dll
+C:\Users\001\Source\Repos\AccountingProcess_ver0.2\WPF\bin\Debug\netcoreapp3.1\ClassLibrary1.pdb

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R58ES7zW0OIWDYyg1VN1H/a4bFTD0Y9ff9jyJExrZDJfdfOCdlGum2affeHGx1HQbgCyPKP2nPR/qB2mzXMO6w==",
+  "dgSpecHash": "UMtQ2CWPusk4uhxNiduZ3QLslIfPom8rc2m5VnkBZBHq5J1laMGSGG2be9dJ4xsuvphevSODmbjsSb+B5ove0A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\001\\Source\\Repos\\AccountingProcess_ver0.2\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\001\\source\\repos\\AccountingProcess_ver0.2\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\001\\.nuget\\packages\\closedxml\\0.95.3\\closedxml.0.95.3.nupkg.sha512",
     "C:\\Users\\001\\.nuget\\packages\\documentformat.openxml\\2.7.2\\documentformat.openxml.2.7.2.nupkg.sha512",
